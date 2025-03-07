@@ -20,8 +20,8 @@ import javafx.scene.control.TextField;
 public class MainController implements Initializable {
 
 private User selectedUser;
-//atribut
-     @FXML
+//atribut & component
+    @FXML
     private Button btnAdd;
      
     @FXML
@@ -39,9 +39,6 @@ private User selectedUser;
     @FXML
     private TextField txtFullname;
        
-       
-
-
     private void clearFields() {
         txtUsername.clear();
         txtPassword.clear();
@@ -65,7 +62,9 @@ private User selectedUser;
             txtPassword.setText(user.getPassword());
         }
     }
-
+    
+    
+//insert
     @FXML
     private void addUser() {
         String username = txtUsername.getText();
@@ -82,7 +81,7 @@ private User selectedUser;
         loadDataUsers(); 
         clearFields();
     }
-
+//update
     @FXML
     private void updateUser() {
         if (selectedUser == null) {
@@ -108,7 +107,7 @@ private User selectedUser;
         loadDataUsers(); 
         clearFields();
     }
-
+//delete
     @FXML
     private void deleteUser() {
         if (selectedUser == null) {
@@ -124,11 +123,7 @@ UserDAO.deleteUser(selectedUser.getUsername());
     }
     
     
-    
-//    Update
-//    Delete
-    //    Read
-
+//   read
     @FXML
     private TableColumn<User, String> colUsername;
 
@@ -143,7 +138,7 @@ UserDAO.deleteUser(selectedUser.getUsername());
     private TableView<User> Tbluser;
 
     private void loadDataUsers() {
-        ObservableList<User> userList = UserDAO.getUsers(); // Pastikan UserDAO.getUsers() mengembalikan ObservableList<User>
+        ObservableList<User> userList = UserDAO.getUsers(); 
         Tbluser.setItems(userList);
     }
 

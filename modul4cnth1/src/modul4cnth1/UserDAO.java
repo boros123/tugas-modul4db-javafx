@@ -79,9 +79,9 @@ public class UserDAO {
 
     try (Connection koneksi = DBConnection.getConnection()) {
         PreparedStatement mst = koneksi.prepareStatement(query);
-        mst.setString(1, user.getFullname()); // fullname dulu
-        mst.setString(2, user.getPassword()); // password setelahnya
-        mst.setString(3, user.getUsername()); // username tetap di posisi terakhir
+        mst.setString(1, user.getFullname()); 
+        mst.setString(2, user.getPassword()); 
+        mst.setString(3, user.getUsername()); 
 
         mst.executeUpdate();
         mst.close();
